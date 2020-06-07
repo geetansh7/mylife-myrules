@@ -1,0 +1,37 @@
+<form [formGroup]="ruleForm" (ngSubmit)="ruleSubmit()">
+<p>
+<mat-form-field class="example-full-width">
+    <input type="text"
+           placeholder="Pick a game"
+           aria-label="Number"
+           matInput
+           formControlName = "gameName"
+           [matAutocomplete]="auto">
+           <!-- [formControl]="myControl" -->
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let gameOption of gameOptions|async" [value]="gameOption">
+        {{gameOption}}
+      </mat-option>
+    </mat-autocomplete>
+</mat-form-field>
+</p>
+<!-- <p>
+  <mat-form-field appearance="fill">
+    <mat-label>Fill form field</mat-label>
+    <input matInput placeholder="Placeholder">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+</p> -->
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Enter the rule</mat-label>
+    <textarea matInput placeholder="Enter the rule" formControlName="gameRule"></textarea>
+    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+    <!-- <mat-hint>Hint</mat-hint> -->
+  </mat-form-field>
+</p>
+<button mat-raised-button color="primary">Primary</button>
+</form>
+
+
